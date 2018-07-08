@@ -17,4 +17,5 @@ COPY dnsmasq.conf /etc/dnsmasq.conf
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 #run!
-ENTRYPOINT ["/run.sh"]
+#ENTRYPOINT ["/run.sh"]
+CMD /run.sh
