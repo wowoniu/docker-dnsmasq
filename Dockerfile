@@ -11,8 +11,10 @@ RUN  chmod +x /usr/local/bin/webproc
 #configure dnsmasq
 RUN mkdir -p /etc/default/
 RUN echo -e "ENABLED=1\nIGNORE_RESOLVCONF=yes" > /etc/default/dnsmasq
-RUN echo "nameserver 127.0.0.1" > /etc/resolv.conf
+#RUN echo "nameserver 127.0.0.1" > /etc/resolv.conf
 COPY dnsmasq_base.conf /etc/dnsmasq.d/dnsmasq_base.conf
 COPY dnsmasq.conf /etc/dnsmasq.conf
+COPY run.sh /run.sh
+RUN chmod +x /run.sh
 #run!
-ENTRYPOINT ["webproc","--config","/etc/dnsmasq.conf","--","dnsmasq","--no-daemon"]
+ENTRYPOINT ["./run.sh"]
