@@ -18,4 +18,4 @@ COPY run.sh /run.sh
 RUN chmod +x /run.sh
 #run!
 #ENTRYPOINT ["/run.sh"]
-CMD /run.sh
+CMD sh /run.sh
